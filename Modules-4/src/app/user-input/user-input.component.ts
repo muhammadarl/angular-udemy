@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -13,10 +13,19 @@ export class UserInputComponent {
   annualInvestment: number = 0;
   expectedReturn: number = 5;
   duration: number = 10;
+  investmentData = output<{
+    initialInvestment: number,
+    annualInvestment: number,
+    expectedReturn: number,
+    duration: number,
+  }>();
 
-  calculateInvestment() {
-    const totalInvestment = this.initialInvestment + (this.annualInvestment * this.duration);
-    const futureValue = totalInvestment * Math.pow((1 + this.expectedReturn / 100), this.duration);
-    console.log(`Total Investment: ${futureValue}`);
+  calculateInvestment(){
+    this.investmentData.emit( {
+      initialInvestment: this.initialInvestment,
+      annualInvestment: this.annualInvestment,
+      expectedReturn: this.expectedReturn,
+      duration: this.duration,
+    });
   }
 }
