@@ -9,7 +9,14 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './user-input.component.css'
 })
 export class UserInputComponent {
+  initialInvestment: number = 0;
+  annualInvestment: number = 0;
+  expectedReturn: number = 5;
+  duration: number = 10;
+
   calculateInvestment() {
-    console.log('Investment calculated!');
+    const totalInvestment = this.initialInvestment + (this.annualInvestment * this.duration);
+    const futureValue = totalInvestment * Math.pow((1 + this.expectedReturn / 100), this.duration);
+    console.log(`Total Investment: ${futureValue}`);
   }
 }
