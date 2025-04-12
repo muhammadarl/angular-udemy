@@ -1,6 +1,5 @@
-<p>Please enter some values and press "calculate"</p>
 @if (investmentResults().length > 0) {
-<table>
+<table class="center">
     <thead>
         <tr>
             <th>Year</th>
@@ -16,7 +15,7 @@
         @for (item of investmentResults(); track item.year) {
         <tr>
             <td>{{ item.year }}</td>
-            <td>{{ item.annualInvestment }}</td>
+            <td>{{ item.valueEndOfYear }}</td>
             <td>{{ item.interest}}</td>
             <td>{{ item.totalInterest}}</td>
             <td>{{ item.totalAmountInvested }}</td>
@@ -24,4 +23,6 @@
         }
     </tbody>
 </table>
+}@else{
+<p class="center">Please enter some values and press "calculate"</p>
 }
