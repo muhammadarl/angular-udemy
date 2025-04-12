@@ -1,5 +1,4 @@
 import { Component, Input, inject } from '@angular/core';
-
 import { type Task } from './task.model';
 import { TasksService } from '../tasks.service';
 
