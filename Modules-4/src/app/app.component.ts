@@ -1,17 +1,12 @@
-import { Component, computed, inject, signal } from '@angular/core';
-import { HeaderComponent } from './header/header.component';
-import { UserInputComponent } from "./user-input/user-input.component";
-import { InvestmentResultsComponent } from "./investment-results/investment-results.component";
+import { Component, computed, inject } from '@angular/core';
 import { InvestmentService } from './investment.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [HeaderComponent, UserInputComponent, InvestmentResultsComponent],
+  standalone: false,
   templateUrl: './app.component.html',
 })
 export class AppComponent {
   private investmentService = inject(InvestmentService);
   results = computed(() => this.investmentService.Results());
-
 }
