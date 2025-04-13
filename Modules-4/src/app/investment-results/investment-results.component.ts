@@ -9,14 +9,14 @@ import { Component, input } from '@angular/core';
   styleUrl: './investment-results.component.css'
 })
 export class InvestmentResultsComponent {
-  investmentResults= input.required<{
+  investmentResults= input<{
     year: number;
     interest: number;
     valueEndOfYear: number;
     annualInvestment: number;
     totalInterest: number;
     totalAmountInvested: number;
-  }[]>();
+  }[] | undefined>();
 
 
 }
