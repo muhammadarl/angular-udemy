@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { UserInputComponent } from "./user-input/user-input.component";
 import { InvestmentResultsComponent } from "./investment-results/investment-results.component";
@@ -12,9 +12,6 @@ import { InvestmentService } from './investment.service';
 })
 export class AppComponent {
   private investmentService = inject(InvestmentService);
-  
-  get results() {
-    return this.investmentService.Results();
-  }
+  results = computed(() => this.investmentService.Results());
 
 }

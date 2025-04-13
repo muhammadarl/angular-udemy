@@ -8,7 +8,7 @@ export class InvestmentService {
     private results = signal<InvestmentResults[] | undefined>(undefined);
 
     Results() {
-        return this.results;
+        return this.results();
     }
     calculateInvestmentResults(investParam: InvestmentInput) {
 
